@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/easyvk.h
+vulkan/vulkan.h
+-
+vector
+-
+
+/home/mingun0108/Desktop/vulkanAndroid/easyvkAndroid/src/easyvk.cpp
+vulkan/vulkan.h
+-
+vector
+-
+array
+-
+iostream
+-
+easyvk.h
+/home/mingun0108/Desktop/vulkanAndroid/easyvkAndroid/src/easyvk.h
+fstream
+-
+filesystem
+-
+

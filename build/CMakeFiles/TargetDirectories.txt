@@ -1,0 +1,7 @@
+/home/mingun0108/Desktop/vulkanAndroid/easyvkAndroid/build/CMakeFiles/install/strip.dir
+/home/mingun0108/Desktop/vulkanAndroid/easyvkAndroid/build/CMakeFiles/install/local.dir
+/home/mingun0108/Desktop/vulkanAndroid/easyvkAndroid/build/CMakeFiles/install.dir
+/home/mingun0108/Desktop/vulkanAndroid/easyvkAndroid/build/CMakeFiles/list_install_components.dir
+/home/mingun0108/Desktop/vulkanAndroid/easyvkAndroid/build/CMakeFiles/rebuild_cache.dir
+/home/mingun0108/Desktop/vulkanAndroid/easyvkAndroid/build/CMakeFiles/edit_cache.dir
+/home/mingun0108/Desktop/vulkanAndroid/easyvkAndroid/build/CMakeFiles/easyvkAndroid.dir
