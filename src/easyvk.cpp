@@ -202,7 +202,7 @@ namespace easyvk {
 			nullptr,
 			VkBufferCreateFlags {},
 			size * sizeof(uint32_t),
-			VK_BUFFER_USAGE_STORAGE_BUFFER_BIT }, nullptr, &newBuffer));
+			VK_BUFFER_USAGE_STORAGE_BUFFER_BIT}, nullptr, &newBuffer));
 		return newBuffer;
 	}
 
@@ -215,20 +215,22 @@ namespace easyvk {
 				VkMemoryRequirements memReqs;
 				vkGetBufferMemoryRequirements(device.device, buffer, &memReqs);
 
-				vulkanCheck(vkAllocateMemory(_device.device, new VkMemoryAllocateInfo {
-				    VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
+				VkMemoryAllocateInfo vkMemAllInfo {
+					VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
 				    nullptr,
 				    memReqs.size,
-				    memId}, nullptr, &memory));
+				    memId};
+
+				vulkanCheck(vkAllocateMemory(_device.device, &vkMemAllInfo, nullptr, &memory));
 
                 vulkanCheck(vkBindBufferMemory(_device.device, buffer, memory, 0));
 
-                void** newData = new void*;
-                vulkanCheck(vkMapMemory(_device.device, memory, 0, VK_WHOLE_SIZE, VkMemoryMapFlags {}, newData));
+                void* newData = new void*;
+                vulkanCheck(vkMapMemory(_device.device, memory, 0, VK_WHOLE_SIZE, {}, &newData));
 				data = (uint32_t*)newData;
 			}
 
-
+	// 6
 	void Buffer::teardown() {
 		vkUnmapMemory(device.device, memory);
 		vkFreeMemory(device.device, memory, nullptr);
@@ -392,6 +394,7 @@ namespace easyvk {
 				&descriptorSetLayout
 			};
 			vulkanCheck(vkCreatePipelineLayout(device.device, &createInfo, nullptr, &pipelineLayout));
+			
 			VkDescriptorPoolSize poolSize {
 				VK_DESCRIPTOR_TYPE_STORAGE_BUFFER,
 				(uint32_t)buffers.size()
